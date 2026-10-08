@@ -24,3 +24,46 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1; /* Fades in */
+  }
+  25% {
+    /* Drifts right, tilts right */
+    transform: translateY(150px) translateX(30px) rotate(15deg);
+  }
+  50% {
+    /* Drifts left, tilts left */
+    transform: translateY(350px) translateX(-30px) rotate(-15deg);
+  }
+  75% {
+    /* Drifts right, tilts right again */
+    transform: translateY(550px) translateX(30px) rotate(15deg);
+  }
+  100% {
+    /* Ends drifting left */
+    transform: translateY(800px) translateX(-30px) rotate(-15deg);
+    opacity: 0; /* Fades out */
+  }
+}
+
+.feather {
+  /* Size and placement */
+  width: 40px;
+  height: auto;
+  position: absolute;
+  top: -50px; /* Starts just above the container edge */
+  left: 20%; /* Pushes it 20% from the left edge */
+  
+  /* The animation rules */
+  animation-name: fall;
+  animation-duration: 5s;
+  animation-timing-function: linear; /* Keeps the fall speed steady */
+  animation-iteration-count: infinite; /* Loops it forever */
+}
